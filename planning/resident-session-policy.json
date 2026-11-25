@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "kind": "future-resident-session-policy",
+  "status": "Implemented opt-in batch driver; CPU orchestration tested; no resident GPU session launched",
+  "source": "User instruction for subsequent experiments, persisted in profiling-lab/AGENTS.md",
+  "implementation": "experiments/context_sweep/resident_session.py",
+  "tests": "experiments/context_sweep/test_resident_session.py",
+  "current_running_experiment": "Its frozen source and two-process baseline/profile protocol remain unchanged. This policy applies to future experiments.",
+  "reuse_rule": {
+    "priority": "Before another allocation, the allocation owner checks for an existing live session with compatible model revision, precision, TP topology, execution configuration and instrumentation mode, and uses that resident session first.",
+    "bounded_batch_v1": "Declare the compatible experiment sequence before executing this driver. It creates exactly one native EngineCore, runs every ordered experiment against the same two worker processes and GPU UUIDs, then shuts down once at the end of the entire session.",
+    "unload_boundary": "No model unload/reload between experiments. Weights unload only on whole-session completion, explicit failure cleanup or the external hard deadline.",
+    "service_limit": "This first implementation is a local/in-allocation batch driver, not a deployed persistent service or remote queue. It does not allocate GPUs, discover remote Modal sessions or leave a warm deployment waiting indefinitely. A future allocation controller must enforce live-session reuse before creating a new allocation."
+  },
+  "hardware_and_model": {
+    "gpu": "B300:2 only",
+    "model": "thinkingmachines/Inkling-2-Small",
+    "revision": "8361e7a31ae7e9966a49a91d3994fde618936c2b",
+    "baseline": "cloud-20261115T185654Z",
+    "engine_config": "Exactly experiments.context_sweep.runtime.engine_arguments(); plan mutation is rejected",
+    "variants": "Native implementation only. Different kernel/model variants require a reviewed adapter with an explicit state-reset and correctness contract; unsupported names are rejected, not silently replaced.",
+    "concurrency": "One engine, one ordered experiment at a time, batch/concurrency1; no overlapping allocations initiated by this module"
+  },
+  "instrumentation": {
+    "policy": "One instrumentation mode for the entire resident session: none or nsys. Per-experiment attachment changes are rejected.",
+    "plain_session": "Launch without Nsight. Before and after every experiment, verify worker identity and reject known Linux Nsight injection markers. Environment values are not exported by the probe. CUPTI/NVPerf library presence is recorded separately because a loaded dependency alone does not prove active profiling.",
+    "probe_limit": "Known injection markers are not a universal proof that every external profiler is absent; the allocation owner's declared no-profiler launch policy is also required.",
+    "nsight_session": "Every experiment is labeled instrumented. Even capture-inactive startup/warmup/idle intervals cannot be called an unattached baseline. Existing run_case captures measured ranges separately from setup and warmups.",
+    "comparison_limit": "A plain resident batch and an Nsight resident batch may require separate processes and one startup each. Startup can be amortized across all compatible experiments within each batch. No attach/detach mechanism preserving unbiased baseline timings is claimed here.",
+    "trace_proof": "A completed instrumented harness is not proof of a saved Nsight report. The allocation controller must collect and independently validate both-device traces. Raw reports remain local."
+  },
+  "state_and_timing": {
+    "sequence_state": "Reuse the real native state adapter: fresh prefill zeros its selected pages; decode prepares its history; every invocation restores and verifies attention/convolution metadata and bytes outside timing.",
+    "retained_state": "Compiled kernels, autotune caches, allocator pools and native communication counters remain resident. These are not sequence state and are not reset; experiment ordering and cache-temperature effects remain visible in the ledger.",
+    "measurement": "Each case retains the existing preparation, five clean warmups, ten synchronized measured calls, per-rank CUDA events/wall/memory and exact output/state checks. Full sets contaminated by observed compilation remain preserved and repeated according to the existing harness.",
+    "startup": "Record the single actual engine-startup duration separately. Dividing it by completed experiments/cases is an accounting estimate, not forward latency or a measured speedup. Final session shutdown is recorded separately."
+  },
+  "artifacts": {
+    "session": "plan.json, session-ledger.json with UUID and worker identities, runtime.json, actual runtime-inventory.json, frozen executed-source, source-provenance.json and integrity manifest",
+    "experiment": "Separate experiments/<id> directory with frozen-config.json, input IDs/hashes, original per-case/per-rank observations, state checks, summary and manifest. Config references the same resident session, source hashes and original inventory hash.",
+    "eligibility": "Per-case timing flags are conditional on a completed identity/instrumentation-checked session. A failed session has no session-level unprofiled headline eligibility.",
+    "immutability": "Existing result directories are refused. Current source drift after freezing, worker restarts, GPU identity changes and unsupported configuration changes fail explicitly. Prior completed experiment artifacts are retained.",
+    "local_only": "No credentials or model weights are copied. Selected safe environment inventory is captured at run time. Nsight artifacts remain local; publishing requires the existing sanitized allowlist."
+  },
+  "bounds": {
+    "max_session_seconds": 1800,
+    "max_experiments": 16,
+    "max_total_cases": 48,
+    "deadline_caveat": "Internal remaining-time checks run between native operations and bound RPC waits. The external allocation hard timeout remains necessary to bound model startup, a stuck native worker or cleanup."
+  },
+  "commands": {
+    "plan_only": "uv run --no-project python -m experiments.context_sweep.resident_session",
+    "future_explicit_execution_inside_authorized_runtime": "uv run --no-project python -m experiments.context_sweep.resident_session --plan resident-plan.json --run --output-dir /results/NEW_RESIDENT_SESSION"
+  },
+  "validation": "CPU tests verify one startup/final shutdown across multiple experiments, preserved partial failures, identity-change rejection, no instrumented timing relabeled plain, unsupported-plan rejection, safe injection-marker receipts and immutable output directories. These are not proof of GPU runtime compatibility or performance."
+}

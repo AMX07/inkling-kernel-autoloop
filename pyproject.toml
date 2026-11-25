@@ -1,0 +1,6 @@
+[project]
+name = "inkling-kernel-autoloop"
+version = "0.1.0"
+description = "An independent, benchmark-driven kernel engineering experiment for Inkling"
+requires-python = ">=3.12"
+dependencies = []

@@ -1,0 +1,92 @@
+{
+  "kind": "relative-bias-fusion-protocol-v1",
+  "status": "predeclared-before-new-GPU-results",
+  "hypothesis": "An exact one-pass relative-bias conversion can reduce redundant indexing/memory passes in the native safe SM103 attention fallback and improve complete forward latency.",
+  "gpu": "B300:2",
+  "model": "thinkingmachines/Inkling-2-Small",
+  "revision": "8361e7a31ae7e9966a49a91d3994fde618936c2b",
+  "baseline_run": "context-sweep-20261115T203821Z",
+  "original_attention_source_sha256": "ff3164d9d02e1e317698e239d114796a091424f8df7bb1c310381127c7d4b1b1",
+  "source_function": "vllm.models.inkling2.ops.attention._unshear_rel_logits",
+  "source_inspection_scope": "Single-token decode selects native rel_decode_attention and may make zero unshear calls. Such cases remain full-model exact-correctness and regression controls; no helper latency or captured helper input is invented for an uncalled path.",
+  "unchanged": [
+    "model weights and native mixed quantization",
+    "TP2/EP2 topology",
+    "native routing",
+    "safe CuTe attention fallback",
+    "B300 sheared-FA4 disable guard",
+    "cache precision",
+    "full-forward measurement boundary"
+  ],
+  "matrix": {
+    "phases": [
+      "prefill",
+      "decode"
+    ],
+    "lengths": [
+      256,
+      1024,
+      4096
+    ],
+    "batch_size": 1,
+    "concurrency": 1,
+    "decode_history_length": "L cached tokens, one timed token; total L+1",
+    "seed": 336
+  },
+  "resident_policy": "One loaded engine across every compatible case/variant in each batch. Separate plain and Nsight processes require one startup each; no instrumented timings called unattached. One sequential 2xB300 allocation; no concurrent benchmarks.",
+  "baseline_and_correctness": "Native history preparation and a single native reference per case are retained across variant switches. Restore exact attention/convolution state before each invocation. Require byte-exact helper outputs on actual captured and adversarial inputs and byte-exact full-model logits against native; a mismatch blocks candidate performance claims.",
+  "adversarial_requirements": [
+    "padding and invalid columns",
+    "query lengths crossing 128-row tile boundaries",
+    "ragged multiple requests and zero-length requests",
+    "NaN to positive zero",
+    "positive and negative infinity to dtype finite limits",
+    "finite values including signed zero",
+    "noncontiguous input strides",
+    "CUDA graph replay with in-place changed device sequence metadata"
+  ],
+  "timing": {
+    "confirmation_blocks_per_case": 2,
+    "warmup_pairs_per_block": 5,
+    "measured_pairs_per_block": 10,
+    "order": "Alternate native/fused order per pair; reverse first order in block2",
+    "two_rank_metric": "Maximum synchronized rank-local wall duration, never rank sum",
+    "separate_diagnostics": [
+      "per-rank CUDA event intervals",
+      "helper microbench wall/events/allocator peaks",
+      "instrumented kernel counts and unions"
+    ],
+    "compilation": "Preserve all observations; if compilation/autotuning occurs during a block, warm up and repeat the entire ten-pair block with bounded retries. Never selectively remove slow samples."
+  },
+  "profiling": {
+    "attribution": "Helper NVTX CPU ranges plus process/thread-aware CUDA launch correlation to actual kernels; an asynchronous CPU NVTX span is not helper GPU latency",
+    "outer_range": "Synchronized complete forward; setup/restoration/validation excluded",
+    "source": "https://docs.nvidia.com/nsight-systems/AnalysisGuide/",
+    "counts": "Record native helper invocations and their kernel counts per rank/case; do not infer ownership from generic kernel names"
+  },
+  "memory": "Report PyTorch allocator allocated/reserved/incremental peaks and captured-input snapshot cost separately. Native KV VMM physical commitment is outside Torch allocator scope; do not claim an exact all-allocator peak.",
+  "decision": {
+    "primary": "4096-token prefill synchronized complete forward",
+    "eager_winner": "All correctness gates pass; primary mean improves in both confirmation blocks; pooled paired bootstrap95% interval for baseline/candidate mean-latency ratio exceeds1; mean decode latency does not increase at any tested history length",
+    "not_adopted_until": "Winning candidate is additionally checked under existing native CUDA-graph serving configuration, using separate comparable measurements",
+    "interpretation": "A helper-only speedup or Amdahl counterfactual is not a measured full-forward or serving gain. Any failed or inconclusive gate is retained and reported."
+  },
+  "artifacts": [
+    "frozen executed source and hashes",
+    "actual runtime inventory and selected nonsecret environment",
+    "engine settings and device UUID/PIDs",
+    "synthetic token IDs and hashes",
+    "bounded representative actual helper tensor inputs with hashes",
+    "all correctness/adversarial/graph receipts",
+    "every warmup and measured observation including rejected attempts",
+    "Nsight raw reports and SQLite exports",
+    "read-only derived analysis and archive verification"
+  ],
+  "limits": [
+    "One pretrained inference model; inference only",
+    "4096 is not maximum fitting context",
+    "Native sequence parallelism activates at2048 query tokens",
+    "No new hardware-utilization or HBM-bandwidth claims without measured counters",
+    "Synthetic tokens do not characterize production chat workloads"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "e7a53de9c921737ec7bcd2c3590ac93e0075a22e972efb1ed31732656c86ce17"
+    },
+    {
+      "path": ".python-version",
+      "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
+    },
+    {
+      "path": "EXPERIMENT.md",
+      "sha256": "53de17b841811e087dc64ae0421a95359f9d96c256083055eac5c50b541bd77c"
+    },
+    {
+      "path": "README.md",
+      "sha256": "dc8f01fb0f9da0755ff95f00270a30c926274d027bfff1edae18787bbbf316f0"
+    },
+    {
+      "path": "SOURCE_MANIFEST.json",
+      "sha256": "5968f12683071511cbd244912f4b9da73ee1b7ac16112a39bc26560e81d7e9a2"
+    },
+    {
+      "path": "charts/context-decode-latency.svg",
+      "sha256": "edced67d99af39c2b397bcf4f44d0dabc394f34ecd542962a359ef0cf1567842"
+    },
+    {
+      "path": "charts/context-memory.svg",
+      "sha256": "d8dcec7de53ef2ead9dfa8307689c42e4558e424949cf881866a00b99fbfecab"
+    },
+    {
+      "path": "charts/context-prefill-latency.svg",
+      "sha256": "34a8cf60b035be4a91a6eebae307e547b1ea28237869bcd29c87ab3f3b940f27"
+    },
+    {
+      "path": "charts/relative-bias-decode.svg",
+      "sha256": "67849e4d292779acacd5fb6f166634992cab2b5bf1e15c439354f982320daed8"
+    },
+    {
+      "path": "charts/relative-bias-prefill.svg",
+      "sha256": "03ee927f32ec763fb268ecd0c41dabba85aa6c3bc38105da3d3c45c0afa2bded"
+    },
+    {
+      "path": "experiments/context_sweep/benchmark.py",
+      "sha256": "a252db0ffcd9e211d875fbb74c7f94a27831183191d9ec547be099c6dd367679"
+    },
+    {
+      "path": "experiments/context_sweep/inspect_runtime.py",
+      "sha256": "84321a0b3ef7e758629966c62c784ec91254d6ee5c502b7f2aff416150899dc7"
+    },
+    {
+      "path": "experiments/context_sweep/inventory.py",
+      "sha256": "667aa1379716cfcbc50b60ebe0f7dd7d49bb650e5d6fccdb68fb0ac86308298f"
+    },
+    {
+      "path": "experiments/context_sweep/resident_session.py",
+      "sha256": "cf5207ab7bc7fe42b813c78d7dbcdb13b1591d781b0686e85600293bfaf7339d"
+    },
+    {
+      "path": "experiments/context_sweep/runtime.py",
+      "sha256": "fad8707567408c1f239b65d3753624c241ab78e7bc60c866bc38644bdb967195"
+    },
+    {
+      "path": "experiments/context_sweep/state.py",
+      "sha256": "b8e392d5bfcc427bdd2255ff9a403de1d5a91f1f18c522690c15867eacad3a1c"
+    },
+    {
+      "path": "experiments/context_sweep/test_benchmark.py",
+      "sha256": "ae2af396d044b67336c02feb68fd6f1f3e10e3eda8a72b612da92e4a4e3daa87"
+    },
+    {
+      "path": "experiments/context_sweep/test_resident_session.py",
+      "sha256": "fdc2389a221658265ccd0528aa600c71b99f626514d993ea78dbdb2c96933dbd"
+    },
+    {
+      "path": "experiments/context_sweep/test_state.py",
+      "sha256": "41b1a14263fcb9667eaa9232715f2bdb37edb99bf9529c56a989834c66138ec8"
+    },
+    {
+      "path": "experiments/relative_bias/__init__.py",
+      "sha256": "86a278cfb34be1d8704eea21bd81fb4182b753af2342fd498075f54f10f62535"
+    },
+    {
+      "path": "experiments/relative_bias/adapter.py",
+      "sha256": "d98ee96c50aca020a37737d751f5967892fa36551ad39614dbf7e263eac58697"
+    },
+    {
+      "path": "experiments/relative_bias/benchmark.py",
+      "sha256": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+    },
+    {
+      "path": "experiments/relative_bias/correctness.py",
+      "sha256": "4b867748ce3561dc373ce4a83701b19203b3adf9c6263aef7bdbd3c61be18370"
+    },
+    {
+      "path": "experiments/relative_bias/kernel.py",
+      "sha256": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba"
+    },
+    {
+      "path": "experiments/relative_bias/serving.py",
+      "sha256": "dfd775f1e5be787eaf6da137132ff628789471ed4990ce0a44a6968f7f1921d9"
+    },
+    {
+      "path": "planning/relative-bias-protocol.json",
+      "sha256": "f93cd3af3c4b829fb02ae31eca4530b7e56c28e7386427604ae5f873b2e2427f"
+    },
+    {
+      "path": "planning/resident-session-policy.json",
+      "sha256": "b311f002fb075ac9c6f19b7b8ae3e316cd1bae198882a312d9aa8eacba1db1fd"
+    },
+    {
+      "path": "planning/tokenspeed-baseline-source/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "planning/tokenspeed-baseline-source/vllm/models/inkling2/ops/attention.py",
+      "sha256": "ff3164d9d02e1e317698e239d114796a091424f8df7bb1c310381127c7d4b1b1"
+    },
+    {
+      "path": "profiler/__init__.py",
+      "sha256": "b1e0fce14db256735ddc4c0758438ca56e19323d8d7fa2d6df365f12ca7148e4"
+    },
+    {
+      "path": "profiler/artifacts.py",
+      "sha256": "4a44c0c2787166cf00554d937646091907e5616bbf482867f156212145e32898"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "25dc673653fef3dc92bb83c88bead0b1fe95e4e9785fbcf6648584e702f7a149"
+    },
+    {
+      "path": "results/context-sweep.json",
+      "sha256": "52d6130d13817905316169a52599716506347ff6a2dc3ff31c9db15abfef4734"
+    },
+    {
+      "path": "results/relative-bias.json",
+      "sha256": "c9c05d8b931648fdfd095a5872fa4fb8acbc17cb82219fa50e560f6c8a95e618"
+    },
+    {
+      "path": "results/tokenspeed-experiment.json",
+      "sha256": "302d45c9f4a387dd83f58de594f2e6cbc92104de24bb259319d00eb4397c7b44"
+    },
+    {
+      "path": "scripts/analyze_relative_bias.py",
+      "sha256": "6f2d4f94a6c71a27e7a0a2aba11ea016e4bedc9816b6cca3078d7e54112970e4"
+    },
+    {
+      "path": "scripts/analyze_relative_bias_traces.py",
+      "sha256": "19e65bb74f112fc5bcd2f55e90494d1e0874deee2c17317292fd3898f2431244"
+    },
+    {
+      "path": "scripts/relative_bias_publication.py",
+      "sha256": "cfed4e57073aabf20a01f82d7b1b260b2d20aca4a289ab469c046cfbe45eb86a"
+    },
+    {
+      "path": "tests/test_relative_bias_analysis.py",
+      "sha256": "efc1d2467dfd3c736904d4d2a42ec5c7cc1fe7700e06551dab8f704cb9b5ee84"
+    },
+    {
+      "path": "tests/test_relative_bias_benchmark.py",
+      "sha256": "c0f327849059666f7f1ec96cb38d8f307ab33a05b3f397d6f967b6ff223b0a5d"
+    },
+    {
+      "path": "tests/test_relative_bias_kernel.py",
+      "sha256": "13b0b6a3579a697672ca0c03f3f2d63534085de12e8e103b9c4b12050a70e96a"
+    },
+    {
+      "path": "tests/test_relative_bias_traces.py",
+      "sha256": "6f869eb66af1e86c4918e067cbba83b21a93c96f01651a6a4d99fc4ee902e772"
+    }
+  ]
+}
