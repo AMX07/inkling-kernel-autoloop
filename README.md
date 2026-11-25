@@ -1,4 +1,4 @@
-# Inkling Kernel Autoloop
+# Kernel Autoloop
 
 An independent kernel engineering experiment by Ansh Mittal: an agent-assisted optimization loop for Inkling inference, driven by explicit benchmarks, exact correctness checks, and predeclared acceptance metrics.
 
