@@ -2,6 +2,10 @@
 
 The work progressed through two candidate approaches: a routing/input-quantization adaptation that was rejected, followed by a custom relative-bias fusion with a measured prefill improvement. The saved record also shows the benchmark and correctness harness becoming more rigorous.
 
+![Performance progression: rejected routing candidate, improved prefill, and decode controls](charts/progression-performance.png)
+
+[Download the vector chart](charts/progression-performance.svg). The figure uses all 24 eligible routing cases and all six fusion cases. Routing ratios and fusion means are checked against the committed observations. Decode error bars transform the recorded paired-bootstrap speedup intervals into latency-change intervals; these describe within-session uncertainty. Rebuild with `uv run --no-project --with matplotlib==3.10.8 python scripts/plot_progression.py`.
+
 ```mermaid
 flowchart TD
     A[Native vLLM baseline] --> B[Routing and input-quantization adaptation]

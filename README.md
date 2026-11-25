@@ -23,6 +23,8 @@ The second command prints the benchmark plan without launching a GPU.
 
 ## How the experiment progressed
 
+![Measured performance across the two candidate approaches and the decode acceptance gate](charts/progression-performance.png)
+
 | Stage | Change | Measured outcome / decision |
 | --- | --- | --- |
 | Routing candidate | Adapt TokenSpeed routing and input quantization to native vLLM | All 24 eligible cases were slower by 14.3–96.6%; rejected |

@@ -14,11 +14,11 @@
     },
     {
       "path": "PROGRESSION.md",
-      "sha256": "86765323b5b6b479ab17107052ac2aa176f3f40b940e3613274ced12fc6a4ce4"
+      "sha256": "31231413fa4d679b59d639e46eb872f8894cec2fa592605a256e06f3bb30f383"
     },
     {
       "path": "README.md",
-      "sha256": "b51a3e459e42a551e1230a77ff344cb39f36c9c55f8b199eb994927255bc50c4"
+      "sha256": "fc700391b7acdc673f86c80df677b62aa60ef2052b5c5587cf3a1fa80dc528b5"
     },
     {
       "path": "SOURCE_MANIFEST.json",
@@ -35,6 +35,14 @@
     {
       "path": "charts/context-prefill-latency.svg",
       "sha256": "34a8cf60b035be4a91a6eebae307e547b1ea28237869bcd29c87ab3f3b940f27"
+    },
+    {
+      "path": "charts/progression-performance.png",
+      "sha256": "e5f519f690502fd288f2df0d9d2e7239917ae89baeb1c3f5128f41b902ba9f01"
+    },
+    {
+      "path": "charts/progression-performance.svg",
+      "sha256": "31eea95cef41a43e445e1691941af0f31f8975a8a1d000e58dfccb287374c056"
     },
     {
       "path": "charts/relative-bias-decode.svg",
@@ -155,6 +163,10 @@
     {
       "path": "scripts/analyze_relative_bias_traces.py",
       "sha256": "19e65bb74f112fc5bcd2f55e90494d1e0874deee2c17317292fd3898f2431244"
+    },
+    {
+      "path": "scripts/plot_progression.py",
+      "sha256": "41f6b64b5347b7643d55fb4d6f3ca13a7bc1780949f1c88b5d9d1048b79c643e"
     },
     {
       "path": "scripts/relative_bias_publication.py",
