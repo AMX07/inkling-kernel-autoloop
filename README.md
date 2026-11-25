@@ -20,3 +20,14 @@ uv run --no-project python -m experiments.relative_bias.benchmark
 ```
 
 The second command prints the benchmark plan without launching a GPU.
+
+## How the experiment progressed
+
+| Stage | Change | Measured outcome / decision |
+| --- | --- | --- |
+| Routing candidate | Adapt TokenSpeed routing and input quantization to native vLLM | All 24 eligible cases were slower by 14.3–96.6%; rejected |
+| Native profiling | Sweep three context lengths and locate redundant relative-bias conversion work | Selected a new bottleneck in the safe attention fallback |
+| Relative-bias fusion | Replace multiple tensor passes with one exact Triton helper | 37 → 1 kernel launches per helper; 22.1% lower 4,096-token eager prefill latency |
+| Acceptance review | Apply the original full-model correctness and decode gates | Correctness passed; decode gate failed; candidate not adopted |
+
+The routing result measures an isolated operation; the fusion result measures a complete eager forward. They are separate experiments, not points on a shared speedup curve. The [run-by-run progression](PROGRESSION.md) also records validator fixes, failed attempts, and source hashes distinguishing actual code changes from retries.

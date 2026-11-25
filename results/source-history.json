@@ -1,0 +1,108 @@
+{
+  "audit_date": "2026-11-25",
+  "scope": "Retrospective SHA256 audit of local frozen executed-source files; not new measurements or a reconstruction of missing source files.",
+  "runs": [
+    {
+      "run_id": "relative-bias-20261115T212424Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "41809b6ac87d15fe9edf006a658718dcc9eb36af620d82b46e15cf17e2d42c79",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T213152Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "9e82d1bb3dc48da63597d935859fe7c249d043f876d6adaa712dc489db7411c1",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T213231Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "9e82d1bb3dc48da63597d935859fe7c249d043f876d6adaa712dc489db7411c1",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T213542Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "da4326f03c4caeedc8b823cff1be3b217bdb5a205f38d2e303c31240b08a464e",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T214628Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "da4326f03c4caeedc8b823cff1be3b217bdb5a205f38d2e303c31240b08a464e",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T220452Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "da4326f03c4caeedc8b823cff1be3b217bdb5a205f38d2e303c31240b08a464e",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T223321Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "da4326f03c4caeedc8b823cff1be3b217bdb5a205f38d2e303c31240b08a464e",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T224604Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "4b867748ce3561dc373ce4a83701b19203b3adf9c6263aef7bdbd3c61be18370",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "relative-bias-20261115T231210Z",
+      "frozen_source_sha256": {
+        "experiments/relative_bias/kernel.py": "d4d08841ec066b26a30c8fe51365a7580a5684e22744f76c46343ad1a04cfcba",
+        "experiments/relative_bias/correctness.py": "4b867748ce3561dc373ce4a83701b19203b3adf9c6263aef7bdbd3c61be18370",
+        "experiments/relative_bias/benchmark.py": "4023b9c33bd309af6369244398258f772f6a6b5eeb540799185193c935133e7a"
+      }
+    },
+    {
+      "run_id": "tokenspeed-20261115T192820Z",
+      "frozen_source_sha256": {
+        "experiments/tokenspeed/benchmark.py": "20abc18fe195f09fdbceac26ba27e8ebf833593b6cbafbb4f3dd380f77593313"
+      }
+    },
+    {
+      "run_id": "tokenspeed-20261115T193143Z",
+      "frozen_source_sha256": {
+        "experiments/tokenspeed/candidate.py": "c632ed8d0643e3977c8fddcff711e4c7129b5ecd5b1b7d0692715f27e84d94bc",
+        "experiments/tokenspeed/candidate_kernels.py": "38d6e5f28a785348d8ae2ab7f743b2f0ccfe7cfc4d9dc1d6a84abcf8e9c059f8",
+        "experiments/tokenspeed/benchmark.py": "61074e45359af8b251a0ea252fd5e4e62b85fb85e30a536f1ddb436d79e3b213"
+      }
+    },
+    {
+      "run_id": "tokenspeed-20261115T193507Z",
+      "frozen_source_sha256": {
+        "experiments/tokenspeed/candidate.py": "c632ed8d0643e3977c8fddcff711e4c7129b5ecd5b1b7d0692715f27e84d94bc",
+        "experiments/tokenspeed/candidate_kernels.py": "38d6e5f28a785348d8ae2ab7f743b2f0ccfe7cfc4d9dc1d6a84abcf8e9c059f8",
+        "experiments/tokenspeed/benchmark.py": "3a060a2299df8f075e836fa743dd301e75327f6eeadddb4d4ab363caf90ed92e"
+      }
+    },
+    {
+      "run_id": "tokenspeed-20261115T193905Z",
+      "frozen_source_sha256": {
+        "experiments/tokenspeed/candidate.py": "c632ed8d0643e3977c8fddcff711e4c7129b5ecd5b1b7d0692715f27e84d94bc",
+        "experiments/tokenspeed/candidate_kernels.py": "38d6e5f28a785348d8ae2ab7f743b2f0ccfe7cfc4d9dc1d6a84abcf8e9c059f8",
+        "experiments/tokenspeed/benchmark.py": "b6d184b42398716cee4ddd9bb99922fd3e499264d3bbf87447f7ce4caa6fc0b9"
+      }
+    }
+  ]
+}

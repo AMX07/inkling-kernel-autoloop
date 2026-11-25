@@ -13,8 +13,12 @@
       "sha256": "53de17b841811e087dc64ae0421a95359f9d96c256083055eac5c50b541bd77c"
     },
     {
+      "path": "PROGRESSION.md",
+      "sha256": "86765323b5b6b479ab17107052ac2aa176f3f40b940e3613274ced12fc6a4ce4"
+    },
+    {
       "path": "README.md",
-      "sha256": "dc8f01fb0f9da0755ff95f00270a30c926274d027bfff1edae18787bbbf316f0"
+      "sha256": "b51a3e459e42a551e1230a77ff344cb39f36c9c55f8b199eb994927255bc50c4"
     },
     {
       "path": "SOURCE_MANIFEST.json",
@@ -135,6 +139,10 @@
     {
       "path": "results/relative-bias.json",
       "sha256": "c9c05d8b931648fdfd095a5872fa4fb8acbc17cb82219fa50e560f6c8a95e618"
+    },
+    {
+      "path": "results/source-history.json",
+      "sha256": "b87ccda8cb335e91ce60fc8ccb72e5850733a036e0cf588f0fc94fc7993e0fb4"
     },
     {
       "path": "results/tokenspeed-experiment.json",
