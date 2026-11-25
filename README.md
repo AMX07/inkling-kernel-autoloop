@@ -2,6 +2,8 @@
 
 An independent kernel engineering experiment by Ansh Mittal: an agent-assisted optimization loop for Inkling inference, driven by explicit benchmarks, exact correctness checks, and predeclared acceptance metrics.
 
+![Measured performance across the two candidate approaches and the decode acceptance gate](charts/progression-performance.png)
+
 **Loop:** profile → identify a bottleneck → implement a candidate → validate → benchmark → accept or reject. Benchmark execution and validation are automated; hypothesis selection and code changes were agent-assisted.
 
 The main candidate fuses Inkling's relative-bias conversion into one Triton kernel. On **2× NVIDIA B300**, it reduced **4,096-token eager prefill latency by 22.1%** (135.97 → 105.88 ms; **1.284×**). It was **not adopted**: the strict no-decode-regression gate failed at 256 tokens. This is a measured prefill improvement, not a serving-throughput claim.
@@ -22,8 +24,6 @@ uv run --no-project python -m experiments.relative_bias.benchmark
 The second command prints the benchmark plan without launching a GPU.
 
 ## How the experiment progressed
-
-![Measured performance across the two candidate approaches and the decode acceptance gate](charts/progression-performance.png)
 
 | Stage | Change | Measured outcome / decision |
 | --- | --- | --- |
